@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Angular Testing</title>
+	</head>
+	<body ng-controller="testCtrl">
+
+		<div>
+			<input type="text" ng-model="userText" />
+		</div>
+
+		<div>
+			{{userText}}
+		</div>
+
+		<table>
+			<thead>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Age</th>
+				<th>Username</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in users">
+					<td>{{user.firstname}}</td>
+					<td>{{user.lastname}}</td>
+					<td>{{user.age}}</td>
+					<td>{{user.username}}</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script> 
+	<script src="app.js"></script>
+
+	</body>
+</html>
