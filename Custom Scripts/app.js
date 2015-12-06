@@ -3,13 +3,13 @@ var app = angular.module("myApp", []);
 app.controller("testCtrl", function($scope, $http) {
 	$scope.userText = "My default text!";
 
-	//HTTP Request Types
+	//HTTP Request Types/CRUD
 
-	//GET -> Read
 	//POST -> Create
+	//GET -> Read
 	//PUT -> Update
 	//DELETE -> Delete
-
+	function getUsers() {
 	$http.get("http://daretodiscover.herokuapp.com/users")
 		.success(function(users) {
 			console.log(users);
@@ -21,6 +21,21 @@ app.controller("testCtrl", function($scope, $http) {
 		.error(function() {
 			alert("Error getting data");
 		});
+	}
+
+	getUsers();
+
+	$scope.submitUser = function() {
+		$http.post("http://daretodiscover.herokuapp.com/users", $scope.user)
+			.success(function() {
+				alert("User saved successfully!");
+				getUsers();
+
+			})
+			.error(function() {
+				alert("Error saving user.");
+			});
+	}
 
 	/*$scope.users = [
 		{
