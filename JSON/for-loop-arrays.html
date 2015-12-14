@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Javascript and JSON Drill</title>
+</head>
+<body>
+<h2>Links</h2>
+<ol id="links">
+
+</ol>
+
+<script>
+    var info = {
+        "full_name" : "Sylvia Maguina",
+        "title" : "Developer",
+        "links" : [
+        {    "blog"     : "http://google.com" },
+        {    "facebook" : "http://facebook.com" },
+        {    "podcast"  : "http://feeds.feedburner.com" },
+        {    "twitter"  : "http://twitter.com" },
+        {    "youtube"  : "http://www.youtube.com" }
+        ]
+    };
+
+    var output = '';
+
+    for (var i = 0; i <= info.links.length; i++) {
+        for (key in info.links[i]) {
+            if (info.links[i].hasOwnProperty(key)) {
+                output += '<li>' +
+                '<a href = "' + info.links[i][key] +
+                '">' + key + '</a>' +
+                '</li>';
+            } // hasOwnProperty check
+        } // for each object
+    } // for each array element
+
+    var update = document.getElementById('links');
+    update.innerHTML = output;
+
+</script>
+</body>
+</html>
